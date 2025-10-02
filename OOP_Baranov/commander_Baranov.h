@@ -17,7 +17,7 @@ public:
         Numberofawards = 0;
         Subordinates = 0;
     }
-
+     
     friend std::wistream& operator>>(std::wistream& in, Commander& c);
     friend std::wostream& operator<<(std::wostream& out, const Commander& c);
     friend std::wofstream& operator<<(std::wofstream& fout, const Commander& c);

@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-
+ 
 class Soldier {
 private:
     static int NextID;

@@ -1,4 +1,4 @@
-#include "function_Baranov.h"
+ï»¿#include "function_Baranov.h"
 #include "squad_Baranov.h"
 #include <iostream>
 #include <string>
@@ -6,29 +6,29 @@
 #include <codecvt>
 
 using namespace std;
-
+ 
 void saveSquad(const Squad& squad) {
     wstring filename;
-    wcout << L"Ââåäèòå èìÿ ôàéëà äëÿ ñîõðàíåíèÿ: ";
+    wcout << L"Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° Ð´Ð»Ñ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ: ";
     getline(wcin >> ws, filename);
     filename += L".txt";
 
     wofstream fout(filename, ios::out);
     fout.imbue(locale(locale(), new codecvt_utf8<wchar_t>));
     if (!fout.is_open()) {
-        wcout << L"Îøèáêà ïðè îòêðûòèè ôàéëà äëÿ çàïèñè!" << endl;
+        wcout << L"ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ð¸ Ñ„Ð°Ð¹Ð»Ð° Ð´Ð»Ñ Ð·Ð°Ð¿Ð¸ÑÐ¸!" << endl;
         return;
     }
 
     squad.writeToFile(fout);
     fout.close();
 
-    wcout << L"Äàííûå ñîõðàíåíû â ôàéë: " << filename << endl;
+    wcout << L"Ð”Ð°Ð½Ð½Ñ‹Ðµ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ñ‹ Ð² Ñ„Ð°Ð¹Ð»: " << filename << endl;
 }
 
 void loadSquad(Squad& squad) {
     wstring filename;
-    wcout << L"Ââåäèòå èìÿ ôàéëà äëÿ çàãðóçêè: ";
+    wcout << L"Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° Ð´Ð»Ñ Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¸: ";
     getline(wcin >> ws, filename);
 
     if (filename.find(L".txt") == wstring::npos) {
@@ -38,7 +38,7 @@ void loadSquad(Squad& squad) {
     wifstream fin(filename);
     fin.imbue(locale(locale(), new codecvt_utf8<wchar_t>));
     if (!fin.is_open()) {
-        wcout << L"Ôàéë " << filename << L" íå íàéäåí!" << endl;
+        wcout << L"Ð¤Ð°Ð¹Ð» " << filename << L" Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½!" << endl;
         return;
     }
 
@@ -47,5 +47,5 @@ void loadSquad(Squad& squad) {
     squad.readFromFile(fin);
     fin.close();
 
-    wcout << L"Äàííûå çàãðóæåíû èç ôàéëà: " << filename << endl;
+    wcout << L"Ð”Ð°Ð½Ð½Ñ‹Ðµ Ð·Ð°Ð³Ñ€ÑƒÐ¶ÐµÐ½Ñ‹ Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð°: " << filename << endl;
 }

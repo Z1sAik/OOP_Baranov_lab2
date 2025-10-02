@@ -1,4 +1,4 @@
-#include "soldier_Baranov.h"
+п»ї#include "soldier_Baranov.h"
 #include <iostream>
 #include <string>
 #include "function_Baranov.h"
@@ -7,26 +7,26 @@
 using namespace std;
 
 int Soldier::NextID = 0;
-
+ 
 wistream& operator>>(wistream& in, Soldier& s) {
     s.ID = ++Soldier::NextID;
 
-    wcout << L"Введите имя: ";
+    wcout << L"Р’РІРµРґРёС‚Рµ РёРјСЏ: ";
     getline(in >> ws, s.Name);
 
-    wcout << L"Введите фамилию: ";
+    wcout << L"Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ: ";
     getline(in >> ws, s.Surname);
 
-    wcout << L"Введите возраст: ";
+    wcout << L"Р’РІРµРґРёС‚Рµ РІРѕР·СЂР°СЃС‚: ";
     s.Age = readNumber<int>(1, 65);
 
-    wcout << L"Выберите звание:" << endl;
-    wcout << L"1. Рядовой" << endl;
-    wcout << L"2. Ефрейтор" << endl;
-    wcout << L"3. Сержант" << endl;
-    wcout << L"4. Лейтенант" << endl;
-    wcout << L"5. Капитан" << endl;
-    wcout << L"Ваш выбор: ";
+    wcout << L"Р’С‹Р±РµСЂРёС‚Рµ Р·РІР°РЅРёРµ:" << endl;
+    wcout << L"1. Р СЏРґРѕРІРѕР№" << endl;
+    wcout << L"2. Р•С„СЂРµР№С‚РѕСЂ" << endl;
+    wcout << L"3. РЎРµСЂР¶Р°РЅС‚" << endl;
+    wcout << L"4. Р›РµР№С‚РµРЅР°РЅС‚" << endl;
+    wcout << L"5. РљР°РїРёС‚Р°РЅ" << endl;
+    wcout << L"Р’Р°С€ РІС‹Р±РѕСЂ: ";
     s.RankID = readNumber<int>(1, 5);
 
     return in;
@@ -34,21 +34,21 @@ wistream& operator>>(wistream& in, Soldier& s) {
 
 wstring Soldier::rankToString(int id) {
     switch (id) {
-    case 1: return L"Рядовой";
-    case 2: return L"Ефрейтор";
-    case 3: return L"Сержант";
-    case 4: return L"Лейтенант";
-    case 5: return L"Капитан";
-    default: return L"Неизвестно";
+    case 1: return L"Р СЏРґРѕРІРѕР№";
+    case 2: return L"Р•С„СЂРµР№С‚РѕСЂ";
+    case 3: return L"РЎРµСЂР¶Р°РЅС‚";
+    case 4: return L"Р›РµР№С‚РµРЅР°РЅС‚";
+    case 5: return L"РљР°РїРёС‚Р°РЅ";
+    default: return L"РќРµРёР·РІРµСЃС‚РЅРѕ";
     }
 }
 
 wostream& operator<<(wostream& out, const Soldier& s) {
     out << L"ID: " << s.ID << endl;
-    out << L"Имя: " << s.Name << endl;
-    out << L"Фамилия: " << s.Surname << endl;
-    out << L"Возраст: " << s.Age << endl;
-    out << L"Звание: " << Soldier::rankToString(s.RankID) << endl;
+    out << L"РРјСЏ: " << s.Name << endl;
+    out << L"Р¤Р°РјРёР»РёСЏ: " << s.Surname << endl;
+    out << L"Р’РѕР·СЂР°СЃС‚: " << s.Age << endl;
+    out << L"Р—РІР°РЅРёРµ: " << Soldier::rankToString(s.RankID) << endl;
     return out;
 }
 

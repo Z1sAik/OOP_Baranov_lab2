@@ -6,7 +6,7 @@
 #include "commander_Baranov.h"
 
 using namespace std;
-
+ 
 int main()
 {
     locale::global(std::locale("rus_rus.866"));

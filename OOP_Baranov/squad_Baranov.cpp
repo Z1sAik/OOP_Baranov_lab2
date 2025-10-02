@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-
+ 
 void Squad::addSoldier() {
     Soldier* s = new Soldier();
     wcin >> *s;

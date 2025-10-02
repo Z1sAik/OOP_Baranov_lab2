@@ -2,7 +2,7 @@
 #include <vector>
 #include <fstream>
 #include "soldier_Baranov.h"
-
+ 
 class Squad {
 private:
     std::vector<Soldier*> Soldiers;

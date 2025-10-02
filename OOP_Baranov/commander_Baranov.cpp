@@ -3,7 +3,7 @@
 #include <iostream>
 
 using namespace std;
-
+ 
 wistream& operator>>(wistream& in, Commander& c) {
     wcout << L"Добавляем командира:" << endl;
     //// ЭТО все неправильно исправить надо 
