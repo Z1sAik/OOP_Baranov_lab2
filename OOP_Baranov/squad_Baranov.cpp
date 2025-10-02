@@ -1,4 +1,4 @@
-#include "squad_Baranov.h"
+ï»¿#include "squad_Baranov.h"
 #include <iostream>
 
 using namespace std;
@@ -11,7 +11,7 @@ void Squad::addSoldier() {
 
 void Squad::showAll() const {
     if (Soldiers.empty()) {
-        wcout << L"Âçâîä ïóñò." << endl;
+        wcout << L"Ð’Ð·Ð²Ð¾Ð´ Ð¿ÑƒÑÑ‚." << endl;
         return;
     }
     for (const Soldier* s : Soldiers) {

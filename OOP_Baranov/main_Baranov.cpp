@@ -3,6 +3,7 @@
 #include "function_Baranov.h"
 #include "soldier_Baranov.h"
 #include "squad_Baranov.h"
+#include "commander_Baranov.h"
 
 using namespace std;
 

@@ -27,6 +27,9 @@
     <ClCompile Include="squad_Baranov.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="commander_Baranov.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="function_Baranov.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="squad_Baranov.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="commander_Baranov.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

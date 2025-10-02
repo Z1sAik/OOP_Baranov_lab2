@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -20,6 +20,16 @@ public:
         Surname = L"";
         Age = 0;
         RankID = 0;
+    }
+
+    virtual ~Soldier() {}
+
+    int getRankID() const {
+        return RankID;
+    }
+
+    void setRankID(int rank) {
+        RankID = rank;
     }
 
     friend std::wostream& operator<<(std::wostream& out, const Soldier& s);
