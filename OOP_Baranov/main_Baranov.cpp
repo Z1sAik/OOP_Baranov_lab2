@@ -8,10 +8,9 @@ using namespace std;
 
 int main()
 {
-    wcout.imbue(locale(""));
-    wcin.imbue(locale(""));
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+    locale::global(std::locale("rus_rus.866"));
+    wcout.imbue(locale());
+    wcin.imbue(locale());
 
     Squad squad;
 
