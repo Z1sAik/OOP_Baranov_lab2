@@ -1,8 +1,8 @@
-#pragma once
+﻿#pragma once
 #include <vector>
 #include <fstream>
 #include "soldier_Baranov.h"
-
+//Проверка
 class Squad {
 private:
     std::vector<Soldier*> Soldiers;
