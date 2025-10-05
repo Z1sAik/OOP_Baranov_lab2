@@ -26,7 +26,6 @@ public:
     virtual void input();
     virtual void output() const;
     static std::wstring rankToString(int id);
-
     int getID() const { return ID; }
     static void setNextID(int v) { NextID = v; }
 };

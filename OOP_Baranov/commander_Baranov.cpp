@@ -1,23 +1,43 @@
 ﻿#include "commander_Baranov.h"
 #include "function_Baranov.h"
 #include <iostream>
-#include <boost/serialization/export.hpp>
+
+using namespace std;
 
 void Commander::input() {
     Soldier::input();
-    std::wcout << L"Введите количество наград: ";
-    Awards = readNumber<int>(0, 100);
-    std::wcout << L"Введите количество подчиненных: ";
-    Subordinates = readNumber<int>(0, 1000);
-    std::wcout << L"Выберите тип командира:\n1. Командир взвода\n2. Начальник смены\n3. Старший офицер\nВаш выбор: ";
-    Type = readNumber<int>(1, 3);
+
+    wcout << L"Введите общее количество нарядов командира: ";
+    Tasks = readNumber<int>(0, 100);
+
+    wcout << L"Выберите тип командира:\n";
+    wcout << L"1. Заместитель командира взвода\n";
+    wcout << L"2. Дежурный\n";
+    wcout << L"3. Начальник смены\n";
+    wcout << L"4. Старший солдат\n";
+    wcout << L"Ваш выбор: ";
+    Type = readNumber<int>(1, 4);
 }
 
-void Commander::output() const {
+void Commander::output(const vector<shared_ptr<Soldier>>& squad) const {
+    wcout << L"Тип: Командир\n";
     Soldier::output();
-    std::wcout << L"Награды: " << Awards << L"\n";
-    std::wcout << L"Подчиненные: " << Subordinates << L"\n";
-    std::wstring typeStr = (Type == 1 ? L"Командир взвода" : (Type == 2 ? L"Начальник смены" : L"Старший офицер"));
-    std::wcout << L"Тип командира: " << typeStr << L"\n";
-}
+    wcout << L"Общее количество нарядов командира: " << Tasks << L"\n";
 
+    int subCount = 0;
+    for (const auto& s : squad) {
+        if (dynamic_cast<Commander*>(s.get()) == nullptr)
+            subCount++;
+    }
+    wcout << L"Подчиненные: " << subCount << L"\n";
+
+    wstring typeStr;
+    switch (Type) {
+    case 1: typeStr = L"Заместитель командира взвода"; break;
+    case 2: typeStr = L"Дежурный"; break;
+    case 3: typeStr = L"Начальник смены"; break;
+    case 4: typeStr = L"Старший солдат"; break;
+    default: typeStr = L"Неизвестно"; break;
+    }
+    wcout << L"Тип командира: " << typeStr << L"\n";
+}

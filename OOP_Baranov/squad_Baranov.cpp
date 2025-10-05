@@ -3,18 +3,18 @@
 #include "function_Baranov.h"
 #include <iostream>
 
-void Squad::addSoldier() {
-    std::wcout << L"Выберите тип объекта:\n1. Солдат\n2. Командир\nВаш выбор: ";
-    int choice = readNumber<int>(1, 2);
+using namespace std;
 
-    std::shared_ptr<Soldier> s;
-    if (choice == 2)
-        s = std::make_shared<Commander>();
-    else
-        s = std::make_shared<Soldier>();
-
+void Squad::addSoldierOnly() {
+    auto s = make_shared<Soldier>();
     s->input();
     Soldiers.push_back(s);
+}
+
+void Squad::addCommanderOnly() {
+    auto c = make_shared<Commander>();
+    c->input();
+    Soldiers.push_back(c);
 }
 
 void Squad::showAll() const {
@@ -23,10 +23,15 @@ void Squad::showAll() const {
         return;
     }
     for (const auto& s : Soldiers) {
-        s->output();
+        Commander* cmd = dynamic_cast<Commander*>(s.get());
+        if (cmd)
+            cmd->output(Soldiers);
+        else
+            s->output();
         std::wcout << L"-----------------\n";
     }
 }
+
 
 void Squad::clear() {
     Soldiers.clear();

@@ -8,7 +8,8 @@ private:
     std::vector<std::shared_ptr<Soldier>> Soldiers;
 
 public:
-    void addSoldier();
+    void addSoldierOnly();
+    void addCommanderOnly();
     void showAll() const;
 
     std::vector<std::shared_ptr<Soldier>>& getSoldiers() { return Soldiers; }

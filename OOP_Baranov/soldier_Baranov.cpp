@@ -1,37 +1,47 @@
 ﻿#include "soldier_Baranov.h"
-#include <boost/serialization/export.hpp>
 #include "function_Baranov.h"
 #include <iostream>
+
+using namespace std;
 
 int Soldier::NextID = 0;
 
 void Soldier::input() {
     ID = ++NextID;
-    std::wcout << L"Введите имя: ";
-    std::getline(std::wcin >> std::ws, Name);
-    std::wcout << L"Введите фамилию: ";
-    std::getline(std::wcin >> std::ws, Surname);
-    std::wcout << L"Введите возраст: ";
-    Age = readNumber<int>(1, 65);
-    std::wcout << L"Выберите звание:\n1. Рядовой\n2. Ефрейтор\n3. Сержант\n4. Лейтенант\n5. Капитан\nВаш выбор: ";
-    RankID = readNumber<int>(1, 5);
+    wcout << L"Введите имя: ";
+    getline(wcin >> ws, Name);
+    wcout << L"Введите фамилию: ";
+    getline(wcin >> ws, Surname);
+    wcout << L"Введите возраст: ";
+    Age = readNumber<int>(18, 70);
+
+    wcout << L"Выберите звание:\n"
+        << L"1. Рядовой\n"
+        << L"2. Ефрейтор\n"
+        << L"3. М. Сержант\n"
+        << L"4. Сержант\n"
+        << L"5. С. Сержант\n"
+        << L"6. Старшина\n"
+        << L"Ваш выбор: ";
+    RankID = readNumber<int>(1, 6);
 }
 
+
 void Soldier::output() const {
-    std::wcout << L"ID: " << ID << L"\n";
-    std::wcout << L"Имя: " << Name << L"\n";
-    std::wcout << L"Фамилия: " << Surname << L"\n";
-    std::wcout << L"Возраст: " << Age << L"\n";
-    std::wcout << L"Звание: " << rankToString(RankID) << L"\n";
+    wcout << L"ID: " << ID << L"\n";
+    wcout << L"Имя: " << Name << L"\n";
+    wcout << L"Фамилия: " << Surname << L"\n";
+    wcout << L"Возраст: " << Age << L"\n";
+    wcout << L"Звание: " << rankToString(RankID) << L"\n";
 }
 
 std::wstring Soldier::rankToString(int id) {
-    switch (id) {
-    case 1: return L"Рядовой";
-    case 2: return L"Ефрейтор";
-    case 3: return L"Сержант";
-    case 4: return L"Лейтенант";
-    case 5: return L"Капитан";
-    default: return L"Неизвестно";
-    }
+    if (id == 1) return L"Рядовой";
+    if (id == 2) return L"Ефрейтор";
+    if (id == 3) return L"М. Сержант";
+    if (id == 4) return L"Сержант";
+    if (id == 5) return L"С. Сержант";
+    if (id == 6) return L"Старшина";
+    return L"Неизвестно";
 }
+
