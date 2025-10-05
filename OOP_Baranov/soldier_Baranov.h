@@ -1,8 +1,9 @@
 ﻿#pragma once
 #include <string>
 #include <iostream>
-#include <fstream>
- 
+#include <boost/serialization/access.hpp>
+#include <boost/serialization/base_object.hpp>
+
 class Soldier {
 private:
     static int NextID;
@@ -12,29 +13,20 @@ private:
     int Age;
     int RankID;
 
-public:
-
-    Soldier() {
-        ID = 0;
-        Name = L"";
-        Surname = L"";
-        Age = 0;
-        RankID = 0;
+    friend class boost::serialization::access;
+    template<class Archive>
+    void serialize(Archive& ar, const unsigned int) {
+        ar& ID& Name& Surname& Age& RankID;
     }
 
+public:
+    Soldier() : ID(0), Name(L""), Surname(L""), Age(0), RankID(0) {}
     virtual ~Soldier() {}
 
-    int getRankID() const {
-        return RankID;
-    }
-
-    void setRankID(int rank) {
-        RankID = rank;
-    }
-
-    friend std::wostream& operator<<(std::wostream& out, const Soldier& s);
-    friend std::wistream& operator>>(std::wistream& in, Soldier& s);
-    friend std::wofstream& operator<<(std::wofstream& fout, const Soldier& s);
-    friend std::wifstream& operator>>(std::wifstream& fin, Soldier& s);
+    virtual void input();
+    virtual void output() const;
     static std::wstring rankToString(int id);
+
+    int getID() const { return ID; }
+    static void setNextID(int v) { NextID = v; }
 };

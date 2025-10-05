@@ -2,7 +2,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
- 
+#include "squad_Baranov.h"
+
 template <typename T>
 T readNumber(T min, T max) {
     T x;
@@ -22,6 +23,5 @@ T readNumber(T min, T max) {
     }
 }
 
-class Squad;
 void saveSquad(const Squad& squad);
 void loadSquad(Squad& squad);

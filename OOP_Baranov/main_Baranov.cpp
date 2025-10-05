@@ -6,7 +6,7 @@
 #include "commander_Baranov.h"
 
 using namespace std;
- 
+
 int main()
 {
     locale::global(std::locale("rus_rus.866"));
@@ -16,37 +16,38 @@ int main()
     Squad squad;
 
     while (true) {
-        wcout << L"\n--- Меню ---" << endl;
-        wcout << L"1. Добавить солдата" << endl;
-        wcout << L"2. Показать взвод (всех солдат)" << endl;
-        wcout << L"3. Считать из файла" << endl;
-        wcout << L"4. Записать в файл" << endl;
-        wcout << L"5. Очистить список" << endl;
-        wcout << L"0. Выход" << endl;
-        wcout << L"Выберите пункт: ";
+        std::wcout << L"--- Меню ---\n";
+        std::wcout << L"1. Добавить объект (солдат/командир)\n";
+        std::wcout << L"2. Показать взвод\n";
+        std::wcout << L"3. Считать из файла\n";
+        std::wcout << L"4. Записать в файл\n";
+        std::wcout << L"5. Очистить список\n";
+        std::wcout << L"0. Выход\n";
+        std::wcout << L"Выберите пункт: ";
 
         int choice = readNumber<int>(0, 5);
 
         switch (choice) {
         case 0:
-            wcout << L"Выход из программы." << endl;
+            std::wcout << L"Выход из программы." << std::endl;
             return 0;
         case 1:
             squad.addSoldier();
-            wcout << L"Солдат добавлен!" << endl;
             break;
         case 2:
             squad.showAll();
             break;
-        case 3:
+        case 3: {
             loadSquad(squad);
             break;
-        case 4:
+        }
+        case 4: {
             saveSquad(squad);
             break;
+        }
         case 5:
             squad.clear();
-            wcout << L"Список очищен!" << endl;
+            std::wcout << L"Список очищен!" << std::endl;
             break;
         }
     }
