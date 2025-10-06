@@ -1,0 +1,7 @@
+﻿#pragma once
+#include "soldier_Baranov.h"
+#include "commander_Baranov.h"
+#include <boost/serialization/export.hpp>
+
+BOOST_CLASS_EXPORT(Soldier)
+BOOST_CLASS_EXPORT(Commander)

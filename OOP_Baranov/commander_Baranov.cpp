@@ -40,3 +40,4 @@ void Commander::output(const vector<shared_ptr<Soldier>>& squad) const {
     }
     wcout << L"Тип командира: " << typeStr << L"\n";
 }
+

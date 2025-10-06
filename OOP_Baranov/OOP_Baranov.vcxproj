@@ -137,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="commander_Baranov.h" />
+    <ClInclude Include="exports_Baranov.h" />
     <ClInclude Include="function_Baranov.h" />
     <ClInclude Include="soldier_Baranov.h" />
     <ClInclude Include="squad_Baranov.h" />

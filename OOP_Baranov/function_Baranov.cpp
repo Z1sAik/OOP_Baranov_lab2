@@ -2,6 +2,7 @@
 #include "squad_Baranov.h"
 #include "soldier_Baranov.h"
 #include "commander_Baranov.h"
+#include "exports_Baranov.h"
 #include <boost/archive/text_woarchive.hpp>
 #include <boost/archive/text_wiarchive.hpp>
 #include <boost/serialization/vector.hpp>
@@ -11,9 +12,6 @@
 #include <locale>
 
 using namespace std;
-
-BOOST_CLASS_EXPORT(Soldier)
-BOOST_CLASS_EXPORT(Commander)
 
 void saveSquad(const Squad& squad) {
     wcout << L"Введите имя файла для сохранения (без расширения): ";
