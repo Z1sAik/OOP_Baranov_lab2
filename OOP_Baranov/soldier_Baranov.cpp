@@ -28,6 +28,7 @@ void Soldier::input() {
 
 
 void Soldier::output() const {
+    wcout << L"Тип: " << getType() << L"\n";
     wcout << L"ID: " << ID << L"\n";
     wcout << L"Имя: " << Name << L"\n";
     wcout << L"Фамилия: " << Surname << L"\n";
@@ -44,4 +45,5 @@ std::wstring Soldier::rankToString(int id) {
     if (id == 6) return L"Старшина";
     return L"Неизвестно";
 }
+
 

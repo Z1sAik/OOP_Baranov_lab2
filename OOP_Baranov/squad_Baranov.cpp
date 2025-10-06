@@ -22,28 +22,30 @@ void Squad::showAll() const {
         std::wcout << L"Взвод пуст.\n";
         return;
     }
+
     for (const auto& s : Soldiers) {
-        Commander* cmd = dynamic_cast<Commander*>(s.get());
-        if (cmd)
+        if (auto cmd = dynamic_cast<Commander*>(s.get())) {
             cmd->output(Soldiers);
-        else
+        }
+        else {
             s->output();
+        }
         std::wcout << L"-----------------\n";
     }
 }
 
 
 void Squad::clear() {
-    Soldiers.clear();
+    Soldiers.clear(); 
 }
 
 void Squad::updateNextIDAfterLoad() {
     int maxID = 0;
-    for (const auto& sp : Soldiers) {
-        if (sp) {
-            int id = sp->getID();
-            if (id > maxID) maxID = id;
+    for (const auto& s : Soldiers) {
+        if (s) {
+            maxID = std::max(maxID, s->getID());
         }
     }
     Soldier::setNextID(maxID);
 }
+

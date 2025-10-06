@@ -26,6 +26,19 @@ public:
     virtual void input();
     virtual void output() const;
     static std::wstring rankToString(int id);
-    int getID() const { return ID; }
-    static void setNextID(int v) { NextID = v; }
+
+    int getID() const
+    {
+        return ID;
+    }
+
+    static void setNextID(int value)
+    {
+        NextID = value;
+    }
+
+    virtual std::wstring getType() const {
+        return L"Солдат";
+    }
 };
+

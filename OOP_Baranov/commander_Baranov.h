@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 
+
 class Commander : public Soldier {
 private:
     int Tasks;
@@ -21,4 +22,8 @@ public:
 
     virtual void input() override;
     void output(const std::vector<std::shared_ptr<Soldier>>& squad) const;
+    virtual std::wstring getType() const override {
+        return L"Командир";
+    }
 };
+

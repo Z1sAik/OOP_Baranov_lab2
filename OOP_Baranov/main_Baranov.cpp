@@ -34,9 +34,11 @@ int main()
             return 0;
         case 1:
             squad.addSoldierOnly();
+            wcout << L"Солдат добавлен!" << endl;
             break;
         case 2:
             squad.addCommanderOnly();
+            wcout << L"Командир добавлен!" << endl;
             break;
         case 3:
             squad.showAll();

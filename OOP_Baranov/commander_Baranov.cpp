@@ -20,7 +20,6 @@ void Commander::input() {
 }
 
 void Commander::output(const vector<shared_ptr<Soldier>>& squad) const {
-    wcout << L"Тип: Командир\n";
     Soldier::output();
     wcout << L"Общее количество нарядов командира: " << Tasks << L"\n";
 

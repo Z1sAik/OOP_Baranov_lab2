@@ -23,8 +23,15 @@ void saveSquad(const Squad& squad) {
 
     wstring file_full = filename_w + L".txt";
     wofstream ofs(file_full.c_str());
-    boost::archive::text_woarchive(ofs) << squad.getSoldiers();
-    wcout << L"Сохранение выполнено: " << filename_w << L".txt\n";
+    if (!ofs) {
+        wcout << L"Не удалось открыть файл для записи: " << file_full << endl;
+        return;
+    }
+
+    boost::archive::text_woarchive oa(ofs);
+    oa << squad.getSoldiers();
+
+    wcout << L"Сохранение выполнено: " << file_full << endl;
 }
 
 void loadSquad(Squad& squad) {
@@ -35,8 +42,17 @@ void loadSquad(Squad& squad) {
 
     wstring file_full = filename_w + L".txt";
     wifstream ifs(file_full.c_str());
+    if (!ifs) {
+        wcout << L"Не удалось открыть файл для чтения: " << file_full << endl;
+        return;
+    }
+
     squad.getSoldiers().clear();
-    boost::archive::text_wiarchive(ifs) >> squad.getSoldiers();
+
+    boost::archive::text_wiarchive ia(ifs);
+    ia >> squad.getSoldiers();
+
     squad.updateNextIDAfterLoad();
-    wcout << L"Загрузка выполнена: " << filename_w << L".txt\n";
+
+    wcout << L"Загрузка выполнена: " << file_full << endl;
 }
