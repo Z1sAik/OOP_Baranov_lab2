@@ -1,7 +1,5 @@
 ﻿#pragma once
 #include "soldier_Baranov.h"
-#include <vector>
-#include <memory>
 
 
 class Commander : public Soldier {
@@ -21,7 +19,7 @@ public:
     virtual ~Commander() {}
 
     virtual void input() override;
-    void output(const std::vector<std::shared_ptr<Soldier>>& squad) const;
+    virtual void output() const override;
     virtual std::wstring getType() const override {
         return L"Командир";
     }

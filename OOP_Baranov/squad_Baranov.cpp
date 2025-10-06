@@ -24,19 +24,15 @@ void Squad::showAll() const {
     }
 
     for (const auto& s : Soldiers) {
-        if (auto cmd = dynamic_cast<Commander*>(s.get())) {
-            cmd->output(Soldiers);
-        }
-        else {
-            s->output();
-        }
-        std::wcout << L"-----------------\n";
+        s->output();
+        wcout << L"-----------------\n";
     }
 }
 
 
 void Squad::clear() {
-    Soldiers.clear(); 
+    Soldiers.clear();
+    Soldier::setNextID(0);
 }
 
 void Squad::updateNextIDAfterLoad() {

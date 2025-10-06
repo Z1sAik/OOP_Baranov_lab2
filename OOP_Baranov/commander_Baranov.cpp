@@ -19,17 +19,10 @@ void Commander::input() {
     Type = readNumber<int>(1, 4);
 }
 
-void Commander::output(const vector<shared_ptr<Soldier>>& squad) const {
+void Commander::output() const {
     Soldier::output();
+
     wcout << L"Общее количество нарядов командира: " << Tasks << L"\n";
-
-    int subCount = 0;
-    for (const auto& s : squad) {
-        if (dynamic_cast<Commander*>(s.get()) == nullptr)
-            subCount++;
-    }
-    wcout << L"Подчиненные: " << subCount << L"\n";
-
     wstring typeStr;
     switch (Type) {
     case 1: typeStr = L"Заместитель командира взвода"; break;
