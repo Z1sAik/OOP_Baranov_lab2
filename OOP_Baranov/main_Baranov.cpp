@@ -17,39 +17,33 @@ int main()
 
     while (true) {
         wcout << L"--- Меню ---\n";
-        wcout << L"1. Добавить солдата\n";
-        wcout << L"2. Добавить командира\n";
-        wcout << L"3. Показать взвод\n";
-        wcout << L"4. Считать из файла\n";
-        wcout << L"5. Записать в файл\n";
-        wcout << L"6. Очистить список\n";
+        wcout << L"1. Добавить бойца\n";
+        wcout << L"2. Показать взвод\n";
+        wcout << L"3. Считать из файла\n";
+        wcout << L"4. Записать в файл\n";
+        wcout << L"5. Очистить список\n";
         wcout << L"0. Выход\n";
         wcout << L"Выберите пункт: ";
 
-        int choice = readNumber<int>(0, 6);
+        int choice = readNumber<int>(0, 5);
 
         switch (choice) {
         case 0:
             wcout << L"Выход из программы." << endl;
             return 0;
         case 1:
-            squad.addSoldierOnly();
-            wcout << L"Солдат добавлен!" << endl;
+            squad.input();
             break;
         case 2:
-            squad.addCommanderOnly();
-            wcout << L"Командир добавлен!" << endl;
-            break;
-        case 3:
             squad.showAll();
             break;
-        case 4:
+        case 3:
             loadSquad(squad);
             break;
-        case 5:
+        case 4:
             saveSquad(squad);
             break;
-        case 6:
+        case 5:
             squad.clear();
             wcout << L"Список очищен!" << endl;
             break;

@@ -5,17 +5,25 @@
 
 using namespace std;
 
-void Squad::addSoldierOnly() {
-    auto s = make_shared<Soldier>();
+void Squad::input() {
+    wcout << L"Кого добавить?\n";
+    wcout << L"1. Солдата\n";
+    wcout << L"2. Командира\n";
+    wcout << L"Ваш выбор: ";
+    int choice = readNumber<int>(1, 2);
+
+    shared_ptr<Soldier> s;
+    if (choice == 1)
+        s = make_shared<Soldier>();
+    else
+        s = make_shared<Commander>();
+
     s->input();
     Soldiers.push_back(s);
+
+    wcout << L"Добавлен " << s->getType() << L".\n";
 }
 
-void Squad::addCommanderOnly() {
-    auto c = make_shared<Commander>();
-    c->input();
-    Soldiers.push_back(c);
-}
 
 void Squad::showAll() const {
     if (Soldiers.empty()) {
