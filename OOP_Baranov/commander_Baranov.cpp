@@ -1,7 +1,6 @@
 ﻿#include "commander_Baranov.h"
 #include "function_Baranov.h"
 #include <iostream>
-
 using namespace std;
 
 void Commander_Baranov::input() {
@@ -33,4 +32,3 @@ void Commander_Baranov::output() const {
     }
     wcout << L"Тип командира: " << typeStr << L"\n";
 }
-
