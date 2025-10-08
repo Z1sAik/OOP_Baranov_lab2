@@ -13,7 +13,7 @@ int main()
     wcout.imbue(locale());
     wcin.imbue(locale());
 
-    Squad squad;
+    Squad_Baranov squad;
 
     while (true) {
         wcout << L"--- Меню ---\n";
@@ -38,10 +38,10 @@ int main()
             squad.showAll();
             break;
         case 3:
-            loadSquad(squad);
+            squad.loadFromFile();
             break;
         case 4:
-            saveSquad(squad);
+            squad.saveToFile();
             break;
         case 5:
             squad.clear();

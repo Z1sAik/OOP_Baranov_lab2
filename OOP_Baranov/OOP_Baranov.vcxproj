@@ -130,7 +130,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="commander_Baranov.cpp" />
-    <ClCompile Include="function_Baranov.cpp" />
     <ClCompile Include="main_Baranov.cpp" />
     <ClCompile Include="soldier_Baranov.cpp" />
     <ClCompile Include="squad_Baranov.cpp" />

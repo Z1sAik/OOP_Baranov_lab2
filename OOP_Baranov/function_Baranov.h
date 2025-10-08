@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include <iostream>
 #include <string>
-#include "squad_Baranov.h"
 
 template <typename T>
 T readNumber(T min, T max) {
@@ -21,6 +20,3 @@ T readNumber(T min, T max) {
         return x;
     }
 }
-
-void saveSquad(const Squad& squad);
-void loadSquad(Squad& squad);

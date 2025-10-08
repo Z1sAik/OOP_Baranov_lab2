@@ -4,8 +4,8 @@
 
 using namespace std;
 
-void Commander::input() {
-    Soldier::input();
+void Commander_Baranov::input() {
+    Soldier_Baranov::input();
 
     wcout << L"Введите общее количество нарядов командира: ";
     Tasks = readNumber<int>(0, 100);
@@ -19,8 +19,8 @@ void Commander::input() {
     Type = readNumber<int>(1, 4);
 }
 
-void Commander::output() const {
-    Soldier::output();
+void Commander_Baranov::output() const {
+    Soldier_Baranov::output();
 
     wcout << L"Общее количество нарядов командира: " << Tasks << L"\n";
     wstring typeStr;

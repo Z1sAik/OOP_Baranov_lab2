@@ -4,9 +4,9 @@
 
 using namespace std;
 
-int Soldier::NextID = 0;
+int Soldier_Baranov::NextID = 0;
 
-void Soldier::input() {
+void Soldier_Baranov::input() {
     ID = ++NextID;
     wcout << L"Введите имя: ";
     getline(wcin >> ws, Name);
@@ -27,7 +27,7 @@ void Soldier::input() {
 }
 
 
-void Soldier::output() const {
+void Soldier_Baranov::output() const {
     wcout << L"Тип: " << getType() << L"\n";
     wcout << L"ID: " << ID << L"\n";
     wcout << L"Имя: " << Name << L"\n";
@@ -36,7 +36,7 @@ void Soldier::output() const {
     wcout << L"Звание: " << rankToString(RankID) << L"\n";
 }
 
-std::wstring Soldier::rankToString(int id) {
+std::wstring Soldier_Baranov::rankToString(int id) {
     if (id == 1) return L"Рядовой";
     if (id == 2) return L"Ефрейтор";
     if (id == 3) return L"М. Сержант";

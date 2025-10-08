@@ -3,17 +3,19 @@
 #include <memory>
 #include "soldier_Baranov.h"
 
-class Squad {
+class Squad_Baranov {
 private:
-    std::vector<std::shared_ptr<Soldier>> Soldiers;
+    std::vector<std::shared_ptr<Soldier_Baranov>> Soldiers;
 
 public:
     void input();
     void showAll() const;
     void clear();
     void updateNextIDAfterLoad();
+    void saveToFile() const;
+    void loadFromFile();
 
-    std::vector<std::shared_ptr<Soldier>>& getSoldiers() { return Soldiers; }
-    const std::vector<std::shared_ptr<Soldier>>& getSoldiers() const { return Soldiers; }
+    std::vector<std::shared_ptr<Soldier_Baranov>>& getSoldiers() { return Soldiers; }
+    const std::vector<std::shared_ptr<Soldier_Baranov>>& getSoldiers() const { return Soldiers; }
 
 };

@@ -4,7 +4,7 @@
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/base_object.hpp>
 
-class Soldier {
+class Soldier_Baranov {
 private:
     static int NextID;
     int ID;
@@ -16,12 +16,16 @@ private:
     friend class boost::serialization::access;
     template<class Archive>
     void serialize(Archive& ar, const unsigned int) {
-        ar& ID& Name& Surname& Age& RankID;
+        ar& ID;
+        ar& Name;
+        ar& Surname;
+        ar& Age;
+        ar& RankID;
     }
 
 public:
-    Soldier() : ID(0), Name(L""), Surname(L""), Age(0), RankID(0) {}
-    virtual ~Soldier() {}
+    Soldier_Baranov() : ID(0), Name(L""), Surname(L""), Age(0), RankID(0) {}
+    virtual ~Soldier_Baranov() {}
 
     virtual void input();
     virtual void output() const;
